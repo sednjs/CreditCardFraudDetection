@@ -1,0 +1,11 @@
+fastapi
+uvicorn
+pandas
+numpy
+seaborn
+matplotlib
+category_encoders
+scikit-learn
+xgboost
+imbalanced-learn
+

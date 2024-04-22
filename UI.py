@@ -2,7 +2,7 @@ import joblib
 import pandas as pd
 import requests
 import gradio as gr
-from main_copy import TransactionInput
+from main import TransactionInput
 
 # Load the trained model
 best_pipeline = joblib.load("best_pipeline.joblib")
@@ -49,7 +49,11 @@ def predict_fraud(merchant, category, amt, last, gender, lat, long, city_pop, jo
 interface = gr.Interface(
     fn=predict_fraud,
     inputs=inputs,
-    outputs=["text", "text"],
+    # outputs=["text", "text"],
+    outputs=[
+        gr.Textbox(label="Fraudulent"),
+        gr.Textbox(label="Probability")
+    ],
     title="Credit Card Fraud Detection",
     description="Enter transaction details to predict if it's fraudulent.",
     examples=[
